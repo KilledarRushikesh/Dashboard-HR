@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ThinkBridge.Models.Designations>
+
+<table class="table">
+    <tr>
+        <th>
+            Designation
+        </th>
+        <th>
+            Count
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesignationCount)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Report";
+}
+
+<h2>Report</h2>
+
+<table>
+    <tbody>
+        @foreach (var item in ViewBag)
+        {
+            <tr>
+                <td>@item.text</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

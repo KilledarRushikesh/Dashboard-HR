@@ -1,0 +1,60 @@
+﻿@model ThinkBridge.Models.TeamMembers
+
+@{
+    ViewBag.Title = "Create";
+}
+@using (Html.BeginForm())
+{
+    @*@{
+            if (Model.EmployeeStatus == "Inactive")
+            {
+                 //$('#myTab a:forth').addClass("disabled");
+            }
+        }*@
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Add A TeamMember</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">Employee Information</a></li>
+                <li role="presentation"><a href="#second" aria-controls="second" role="tab" data-toggle="tab">Joining Information</a></li>
+                <li role="presentation"><a href="#third" aria-controls="third" role="tab" data-toggle="tab">Personal  Information</a></li>
+                @*<li role="presentation"><a href="#forth" aria-controls="forth" role="tab" data-toggle="tab">Exit / Termination</a></li>*@
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="first">
+                    <br />
+                    @Html.Partial("_EmployeeInformation")
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="second">
+                    <br />
+                    @Html.Partial("_JoiningInformation")
+                </div>
+                <div role="tabpanel" class="tab-pane" id="third">
+                    <br />
+                    @Html.Partial("_Personal_Information")
+                </div>
+                @*<div role="tabpanel" class="tab-pane" id="forth">
+                    <br />
+                    @Html.Partial("_TerminationDetails")
+                </div>*@
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
